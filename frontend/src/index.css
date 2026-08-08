@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+  body {
+    @apply bg-ink text-offwhite;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(255,212,0,0.06), transparent 35%),
+      radial-gradient(circle at 85% 30%, rgba(255,77,109,0.06), transparent 35%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: #FFD400;
+    color: #121214;
+  }
+}
+
+@layer components {
+  .stamp-text {
+    -webkit-text-stroke: 1.5px #121214;
+    paint-order: stroke fill;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-stamp text-ink font-semibold px-5 py-2.5 rounded-md
+           shadow-stamp transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-surface2 text-offwhite font-medium px-5 py-2.5 rounded-md
+           border border-white/10 transition-colors hover:border-pop/60 hover:text-pop
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .card {
+    @apply bg-surface border border-white/10 rounded-xl;
+  }
+
+  .input {
+    @apply w-full bg-surface2 border border-white/10 rounded-md px-3 py-2 text-sm
+           placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-stamp/60;
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wider text-muted font-mono mb-1 block;
+  }
+}
